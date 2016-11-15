@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ConfigHandler
 {
-    public class Class1
+    public class ConfigHandler
     {
         /*
          * This DLL will contain all of the logic necessary for serializing and deserializing
@@ -56,8 +56,8 @@ namespace ConfigHandler
             }
         }
 
-        public const int DEFAULT_CATEGORY_COUNT = 5;
-        public const int DEFAULT_ROW_COUNT = 4;
+        public const int DEFAULT_CATEGORY_COUNT = 6;
+        public const int DEFAULT_ROW_COUNT = 5;
     }
 
     public class ConfigWrapper
@@ -74,10 +74,10 @@ namespace ConfigHandler
          */
 
         public int FormatRevision { get; set; } = 1;
-        public int[] PointValues { get; set; } = {100, 200, 400, 800};
+        public int[] PointValues { get; set; } = { 200, 400, 600, 800, 1000};
 
         public List<QuestionCategory> Categories { get; set; } =
-            new List<QuestionCategory>(Class1.DEFAULT_CATEGORY_COUNT);
+            new List<QuestionCategory>(ConfigHandler.DEFAULT_CATEGORY_COUNT);
     }
 
     public class QuestionCategory
@@ -89,7 +89,7 @@ namespace ConfigHandler
          * to avoid exposing reference types (e.g. collections) as settable properties
          */
 
-        public List<QuestionEntry> QuestionEntries { get; set; } = new List<QuestionEntry>(Class1.DEFAULT_ROW_COUNT);
+        public List<QuestionEntry> QuestionEntries { get; set; } = new List<QuestionEntry>(ConfigHandler.DEFAULT_ROW_COUNT);
     }
 
     // REFINE Should this be a struct instead of a class?
