@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace ConfigHandler
 {
-    public class ConfigHandler
+    public static class ConfigHandler
     {
         /*
          * This DLL will contain all of the logic necessary for serializing and deserializing
@@ -25,12 +25,12 @@ namespace ConfigHandler
          */
 
         // TODO Compare the two methods of deserializing a file
-        public ConfigWrapper DeserializeBuffered(string configFile)
+        public static ConfigWrapper DeserializeBuffered(string configFile)
         {
             return JsonConvert.DeserializeObject<ConfigWrapper>(File.ReadAllText(configFile));
         }
 
-        public ConfigWrapper DeserializeStream(string configFile)
+        public static ConfigWrapper DeserializeStream(string configFile)
         {
             ConfigWrapper parsed;
 
@@ -43,12 +43,12 @@ namespace ConfigHandler
         }
 
         // TODO Compare the two methods of serializing a file
-        public void SerializeBuffered(string configFile, ConfigWrapper config)
+        public static void SerializeBuffered(string configFile, ConfigWrapper config)
         {
             File.WriteAllText(configFile, JsonConvert.SerializeObject(config));
         }
 
-        public void SerializeStream(string configFile, ConfigWrapper config)
+        public static void SerializeStream(string configFile, ConfigWrapper config)
         {
             using (StreamWriter file = File.CreateText(configFile))
             {
@@ -58,6 +58,7 @@ namespace ConfigHandler
 
         public const int DEFAULT_CATEGORY_COUNT = 6;
         public const int DEFAULT_ROW_COUNT = 5;
+        public const string DEFAULT_QUESTION_DIRECTORY = "question_sets";
     }
 
     public class ConfigWrapper

@@ -1,15 +1,14 @@
-﻿<Window x:Class="QuestionManager.MainWindow"
+﻿<Window x:Class="OpenJeopardy.GameBoard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuestionManager"
+        xmlns:local="clr-namespace:OpenJeopardy"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="GameBoard" Height="300" Width="300"
+        WindowStyle="None"
+        WindowState="Maximized">
     <Grid>
-        <!--
-        TODO Determine whether this app should use separate controls or multiple windows
-        
-        -->
+        <!-- TODO Determine how to bind a grid of controls to my List<QuestionCategory>-->
     </Grid>
 </Window>
