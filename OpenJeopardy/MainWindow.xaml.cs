@@ -129,11 +129,9 @@ namespace OpenJeopardy
 
         private void PrepareGameBoard(CH.ConfigWrapper questionConfig)
         {
-            // Get the number of rows and categories
-            List<CH.QuestionCategory> categories = questionConfig.Categories;
-            Int32[] points = questionConfig.PointValues;
-
-            // TODO Define the game window class
+            //var game = new GameBoard( GameModel.GenerateModel(questionConfig));
+            var game = new GameBoardTemp(GameModel.GenerateModel(questionConfig));
+            game.Show();
         }
 
         private static void ReportQuestionLoadError()

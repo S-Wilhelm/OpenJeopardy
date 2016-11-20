@@ -5,10 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenJeopardy"
         mc:Ignorable="d"
-        Title="GameBoard" Height="300" Width="300"
+        Title="GameBoard"
+        Height="300"
+        Width="300"
         WindowStyle="None"
         WindowState="Maximized">
     <Grid>
         <!-- TODO Determine how to bind a grid of controls to my List<QuestionCategory>-->
+
+        <!-- Modified from http://stackoverflow.com/a/6322082 -->
+        <DataGrid Name="DisplayGrid"
+                  AutoGenerateColumns="True"
+                  AutoGeneratingColumn="DisplayGrid_OnAutoGeneratingColumn"
+                  HeadersVisibility="None">
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}"
+                       BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="1"
+                                                ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="1"
+                                                ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
     </Grid>
 </Window>

@@ -102,6 +102,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigHandler\ConfigHandler.csproj">
+      <Project>{91A22D39-FEA2-4B3D-95F4-AEA579B90E72}</Project>
+      <Name>ConfigHandler</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

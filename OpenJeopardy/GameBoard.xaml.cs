@@ -23,5 +23,15 @@ namespace OpenJeopardy
         {
             InitializeComponent();
         }
+
+        public GameBoard(GameModel model) : this()
+        {
+            DisplayGrid.ItemsSource = model.Categories;
+        }
+
+        private void DisplayGrid_OnAutoGeneratingColumn(Object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

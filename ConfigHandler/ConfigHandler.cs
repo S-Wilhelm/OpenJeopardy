@@ -77,11 +77,11 @@ namespace ConfigHandler
         public int FormatRevision { get; set; } = 1;
         public int[] PointValues { get; set; } = { 200, 400, 600, 800, 1000};
 
-        public List<QuestionCategory> Categories { get; set; } =
-            new List<QuestionCategory>(ConfigHandler.DEFAULT_CATEGORY_COUNT);
+        public List<QuestionCategory<QuestionEntry>> Categories { get; set; } =
+            new List<QuestionCategory<QuestionEntry>>(ConfigHandler.DEFAULT_CATEGORY_COUNT);
     }
 
-    public class QuestionCategory
+    public class QuestionCategory<T> where T:QuestionEntry
     {
         public string Heading { get; set; }
 
@@ -90,7 +90,7 @@ namespace ConfigHandler
          * to avoid exposing reference types (e.g. collections) as settable properties
          */
 
-        public List<QuestionEntry> QuestionEntries { get; set; } = new List<QuestionEntry>(ConfigHandler.DEFAULT_ROW_COUNT);
+        public List<T> QuestionEntries { get; set; } = new List<T>(ConfigHandler.DEFAULT_ROW_COUNT);
     }
 
     // REFINE Should this be a struct instead of a class?
@@ -105,5 +105,6 @@ namespace ConfigHandler
          */
 
         public string Question { get; set; }
+        public string Answer { get; set; }
     }
 }
